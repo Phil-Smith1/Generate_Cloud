@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EE052C191F83C3C900535ABA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE052C181F83C3C900535ABA /* main.cpp */; };
+		EE052C471F83CC0E00535ABA /* Generate_Cloud.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE052C361F83CC0D00535ABA /* Generate_Cloud.cpp */; };
+		EE052C481F83CC0E00535ABA /* Pattern.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE052C381F83CC0D00535ABA /* Pattern.cpp */; };
+		EE052C491F83CC0E00535ABA /* Data_Pt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EE052C3C1F83CC0D00535ABA /* Data_Pt.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +26,28 @@
 
 /* Begin PBXFileReference section */
 		EE052C151F83C3C900535ABA /* Generate_Cloud */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Generate_Cloud; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE052C181F83C3C900535ABA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		EE052C331F83CC0C00535ABA /* Write_Cloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Write_Cloud.h; sourceTree = "<group>"; };
+		EE052C351F83CC0C00535ABA /* Read_Pattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Read_Pattern.h; sourceTree = "<group>"; };
+		EE052C361F83CC0D00535ABA /* Generate_Cloud.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Generate_Cloud.cpp; sourceTree = "<group>"; };
+		EE052C371F83CC0D00535ABA /* Generate_Pt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generate_Pt.h; sourceTree = "<group>"; };
+		EE052C381F83CC0D00535ABA /* Pattern.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pattern.cpp; sourceTree = "<group>"; };
+		EE052C391F83CC0D00535ABA /* Num_To_String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Num_To_String.h; sourceTree = "<group>"; };
+		EE052C3A1F83CC0D00535ABA /* Pattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pattern.h; sourceTree = "<group>"; };
+		EE052C3B1F83CC0D00535ABA /* Wheel_Graph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wheel_Graph.h; sourceTree = "<group>"; };
+		EE052C3C1F83CC0D00535ABA /* Data_Pt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Data_Pt.cpp; sourceTree = "<group>"; };
+		EE052C3F1F83CC0D00535ABA /* Cloud_File_Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cloud_File_Name.h; sourceTree = "<group>"; };
+		EE052C401F83CC0E00535ABA /* Graph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graph.h; sourceTree = "<group>"; };
+		EE052C411F83CC0E00535ABA /* Generate_Graph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generate_Graph.h; sourceTree = "<group>"; };
+		EE052C421F83CC0E00535ABA /* Data_Pt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data_Pt.h; sourceTree = "<group>"; };
+		EE052C431F83CC0E00535ABA /* Lattice_Graph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lattice_Graph.h; sourceTree = "<group>"; };
+		EE052C451F83CC0E00535ABA /* Generate_Cloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generate_Cloud.h; sourceTree = "<group>"; };
+		EE3AC4CB1F8B7DDC00B663E7 /* Scaling_Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scaling_Parameters.h; sourceTree = "<group>"; };
+		EE3AC4CC1F8B7E8800B663E7 /* Write_Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Write_Image.h; sourceTree = "<group>"; };
+		EE3AC4CD1F8B7EF400B663E7 /* Draw_Cloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Draw_Cloud.h; sourceTree = "<group>"; };
+		EE3AC4CE1F8B847400B663E7 /* Image_File_Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image_File_Name.h; sourceTree = "<group>"; };
+		EEE934601FA21DD30072A588 /* Generate_Noise_Uniform_Pt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Generate_Noise_Uniform_Pt.h; sourceTree = "<group>"; };
+		EEE934611FA21E1E0072A588 /* Generate_Gaussian_Pt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Generate_Gaussian_Pt.h; sourceTree = "<group>"; };
+		EEEA6E161F8E3B00002251DD /* Row_Graph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Row_Graph.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +80,28 @@
 		EE052C171F83C3C900535ABA /* Generate_Cloud */ = {
 			isa = PBXGroup;
 			children = (
-				EE052C181F83C3C900535ABA /* main.cpp */,
+				EE052C3C1F83CC0D00535ABA /* Data_Pt.cpp */,
+				EE052C421F83CC0E00535ABA /* Data_Pt.h */,
+				EE052C3F1F83CC0D00535ABA /* Cloud_File_Name.h */,
+				EE052C361F83CC0D00535ABA /* Generate_Cloud.cpp */,
+				EE3AC4CB1F8B7DDC00B663E7 /* Scaling_Parameters.h */,
+				EE052C451F83CC0E00535ABA /* Generate_Cloud.h */,
+				EE052C411F83CC0E00535ABA /* Generate_Graph.h */,
+				EEEA6E161F8E3B00002251DD /* Row_Graph.h */,
+				EE3AC4CC1F8B7E8800B663E7 /* Write_Image.h */,
+				EE3AC4CE1F8B847400B663E7 /* Image_File_Name.h */,
+				EE3AC4CD1F8B7EF400B663E7 /* Draw_Cloud.h */,
+				EE052C371F83CC0D00535ABA /* Generate_Pt.h */,
+				EEE934601FA21DD30072A588 /* Generate_Noise_Uniform_Pt.h */,
+				EEE934611FA21E1E0072A588 /* Generate_Gaussian_Pt.h */,
+				EE052C401F83CC0E00535ABA /* Graph.h */,
+				EE052C431F83CC0E00535ABA /* Lattice_Graph.h */,
+				EE052C391F83CC0D00535ABA /* Num_To_String.h */,
+				EE052C381F83CC0D00535ABA /* Pattern.cpp */,
+				EE052C3A1F83CC0D00535ABA /* Pattern.h */,
+				EE052C351F83CC0C00535ABA /* Read_Pattern.h */,
+				EE052C3B1F83CC0D00535ABA /* Wheel_Graph.h */,
+				EE052C331F83CC0C00535ABA /* Write_Cloud.h */,
 			);
 			path = Generate_Cloud;
 			sourceTree = "<group>";
@@ -119,7 +163,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE052C191F83C3C900535ABA /* main.cpp in Sources */,
+				EE052C491F83CC0E00535ABA /* Data_Pt.cpp in Sources */,
+				EE052C481F83CC0E00535ABA /* Pattern.cpp in Sources */,
+				EE052C471F83CC0E00535ABA /* Generate_Cloud.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +278,34 @@
 		EE052C1D1F83C3C900535ABA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/opencv/3.3.0_3/include,
+					/usr/local/Cellar/boost/1.65.1/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/boost/1.65.1/lib,
+					/usr/local/Cellar/opencv/3.3.0_3/lib,
+				);
+				OTHER_LDFLAGS = (
+					"-lopencv_calib3d",
+					"-lopencv_core",
+					"-lopencv_features2d",
+					"-lopencv_flann",
+					"-lopencv_highgui",
+					"-lopencv_imgcodecs",
+					"-lopencv_imgproc",
+					"-lopencv_ml",
+					"-lopencv_objdetect",
+					"-lopencv_photo",
+					"-lopencv_shape",
+					"-lopencv_stitching",
+					"-lopencv_superres",
+					"-lopencv_video",
+					"-lopencv_videoio",
+					"-lopencv_videostab",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -240,7 +313,34 @@
 		EE052C1E1F83C3C900535ABA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/Cellar/opencv/3.3.0_3/include,
+					/usr/local/Cellar/boost/1.65.1/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/boost/1.65.1/lib,
+					/usr/local/Cellar/opencv/3.3.0_3/lib,
+				);
+				OTHER_LDFLAGS = (
+					"-lopencv_calib3d",
+					"-lopencv_core",
+					"-lopencv_features2d",
+					"-lopencv_flann",
+					"-lopencv_highgui",
+					"-lopencv_imgcodecs",
+					"-lopencv_imgproc",
+					"-lopencv_ml",
+					"-lopencv_objdetect",
+					"-lopencv_photo",
+					"-lopencv_shape",
+					"-lopencv_stitching",
+					"-lopencv_superres",
+					"-lopencv_video",
+					"-lopencv_videoio",
+					"-lopencv_videostab",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
