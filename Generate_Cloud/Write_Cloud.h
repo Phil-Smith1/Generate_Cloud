@@ -1,14 +1,25 @@
 #pragma once
 
-#include<fstream>
+#include <fstream>
+
+#include <boost/filesystem.hpp>
 
 #include "Data_Pt.h"
+#include "Cloud_Directory.h"
 #include "Cloud_File_Name.h"
 
 void Write_Cloud ( string const& cloud_directory, Pattern const& pat, int iteration, vector<Data_Pt>const& cloud )
 {
+    string directory;
+    Cloud_Directory( cloud_directory, pat, directory );
+    
+    if(!boost::filesystem::is_directory( directory ))
+    {
+        boost::filesystem::create_directories( directory );
+    }
+    
 	string cloud_file;
-	Cloud_File_Name( cloud_directory, pat, iteration, cloud_file );
+	Cloud_File_Name( directory, pat, iteration, cloud_file );
 
 	ofstream ofs(cloud_file);
     

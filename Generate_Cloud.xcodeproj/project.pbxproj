@@ -41,6 +41,7 @@
 		EE052C421F83CC0E00535ABA /* Data_Pt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data_Pt.h; sourceTree = "<group>"; };
 		EE052C431F83CC0E00535ABA /* Lattice_Graph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lattice_Graph.h; sourceTree = "<group>"; };
 		EE052C451F83CC0E00535ABA /* Generate_Cloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generate_Cloud.h; sourceTree = "<group>"; };
+		EE22F83B1FA8A3F300D71AC9 /* Image_Directory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Image_Directory.h; sourceTree = "<group>"; };
 		EE3AC4CB1F8B7DDC00B663E7 /* Scaling_Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scaling_Parameters.h; sourceTree = "<group>"; };
 		EE3AC4CC1F8B7E8800B663E7 /* Write_Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Write_Image.h; sourceTree = "<group>"; };
 		EE3AC4CD1F8B7EF400B663E7 /* Draw_Cloud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Draw_Cloud.h; sourceTree = "<group>"; };
@@ -48,6 +49,7 @@
 		EEE934601FA21DD30072A588 /* Generate_Noise_Uniform_Pt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Generate_Noise_Uniform_Pt.h; sourceTree = "<group>"; };
 		EEE934611FA21E1E0072A588 /* Generate_Gaussian_Pt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Generate_Gaussian_Pt.h; sourceTree = "<group>"; };
 		EEEA6E161F8E3B00002251DD /* Row_Graph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Row_Graph.h; sourceTree = "<group>"; };
+		EEEA956C1FA7819C001FB275 /* Cloud_Directory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cloud_Directory.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				EE052C411F83CC0E00535ABA /* Generate_Graph.h */,
 				EEEA6E161F8E3B00002251DD /* Row_Graph.h */,
 				EE3AC4CC1F8B7E8800B663E7 /* Write_Image.h */,
+				EE22F83B1FA8A3F300D71AC9 /* Image_Directory.h */,
 				EE3AC4CE1F8B847400B663E7 /* Image_File_Name.h */,
 				EE3AC4CD1F8B7EF400B663E7 /* Draw_Cloud.h */,
 				EE052C371F83CC0D00535ABA /* Generate_Pt.h */,
@@ -102,6 +105,7 @@
 				EE052C351F83CC0C00535ABA /* Read_Pattern.h */,
 				EE052C3B1F83CC0D00535ABA /* Wheel_Graph.h */,
 				EE052C331F83CC0C00535ABA /* Write_Cloud.h */,
+				EEEA956C1FA7819C001FB275 /* Cloud_Directory.h */,
 			);
 			path = Generate_Cloud;
 			sourceTree = "<group>";
@@ -305,6 +309,8 @@
 					"-lopencv_video",
 					"-lopencv_videoio",
 					"-lopencv_videostab",
+					"-lboost_filesystem",
+					"-lboost_system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -340,6 +346,8 @@
 					"-lopencv_video",
 					"-lopencv_videoio",
 					"-lopencv_videostab",
+					"-lboost_filesystem",
+					"-lboost_system",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

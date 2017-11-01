@@ -10,6 +10,8 @@ void Wheel_Graph ( int num_spokes, Graph& g )
 
 	vector<Graph::vertex_descriptor> v;
 	vector<pair<Graph::edge_descriptor, bool>> e;
+    v.clear();
+    e.clear();
 
 	v.push_back( boost::add_vertex( g ) );
 	g[v[0]].pt = Point2d(0, 0);

@@ -4,9 +4,7 @@
 
 #include "Data_Pt.h"
 
-using namespace std;
-
-void Draw_Cloud ( vector<Data_Pt>const& cloud, double const& scale, Point2d const& shift, Scalar const& colour, Mat& image )
+void Draw_Cloud ( vector<Data_Pt>const& cloud, double scale, Point2d shift, Scalar const& colour, Mat& image )
 {
     for (auto p : cloud)
     {

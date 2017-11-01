@@ -1,7 +1,7 @@
 #pragma once
 
-#include<fstream>
-#include<sstream>
+#include <fstream>
+#include <sstream>
 
 #include "Pattern.h"
 

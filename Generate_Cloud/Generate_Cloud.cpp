@@ -1,9 +1,9 @@
-// Code to generate clouds after inputting a pattern.
+// Code to generate clouds.
 
 // Inclusions.
 
-#include<ctime>
-#include<iostream>
+#include <ctime>
+#include <iostream>
 
 #include "Read_Pattern.h"
 #include "Generate_Graph.h"
@@ -13,7 +13,7 @@
 
 // Global variables.
 
-const int repetitions = 10; // Number of iterations of the code.
+const int repetitions = 1; // Number of iterations in each experiment.
 
 // Global constants.
 
@@ -28,7 +28,7 @@ const string image_directory = "/Users/philsmith/Documents/Xcode Projects/Images
 
 // Functions.
 
-void Print_Iter_Summary ( int iteration, clock_t start_iter )
+void Print_Iter_Summary ( clock_t start_iter, int iteration )
 {
 	clock_t end_iter = clock();
 	double elapsed_time = (end_iter - start_iter) * 1000 / (double)(CLOCKS_PER_SEC);
@@ -37,35 +37,27 @@ void Print_Iter_Summary ( int iteration, clock_t start_iter )
 	cout << "  Duration: " << elapsed_time << " ms." << endl << endl;
 }
 
-void Print_Experiment_Summary ( clock_t start_experiment, int num_experiments )
+void Print_Experiment_Summary ( clock_t start_experiment, int experiment_iter, int repetitions )
 {
-    clock_t end_experiment = clock(); // Stops the stopwatch that measures the duration of the experiment.
+    clock_t end_experiment = clock();
+    double elapsed_time = (end_experiment - start_experiment) * 1000 / (double)(CLOCKS_PER_SEC);
+    double mean_iter_time = elapsed_time / (double)repetitions;
     
-    double elapsed_time = (end_experiment - start_experiment) * 1000 / (double)(CLOCKS_PER_SEC); // Calculating the elapsed time.
-    
-    double average_iter_time = elapsed_time / (double)repetitions; // Calculating the average iteration time.
-    
-    // Printing information about the experiment to cout.
-    
-    cout << "Experiment "  << num_experiments << ":" << endl;
+    cout << "Experiment "  << experiment_iter << ":" << endl;
     cout << "  Experiment duration: " << elapsed_time << " ms." << endl;
-    cout << "  Average iteration time: " << average_iter_time << " ms." << endl << endl;
+    cout << "  Mean iteration time: " << mean_iter_time << " ms." << endl << endl;
 }
 
-void Print_Summary ( clock_t start_time, int num_experiments )
+void Print_Summary ( clock_t start_time, int experiment_iter )
 {
-	clock_t end_time = clock(); // Stops the stopwatch that measures the duration of the code.
-
-	double elapsed_time = (end_time - start_time) * 1000 / (double)(CLOCKS_PER_SEC); // Calculating the elapsed time.
-    
-    double average_experiment_time = elapsed_time / (double)num_experiments; // Calculating the average experiment time.
-
-	// Printing information about the experiment to cout.
+	clock_t end_time = clock();
+	double elapsed_time = (end_time - start_time) * 1000 / (double)(CLOCKS_PER_SEC);
+    double mean_experiment_time = elapsed_time / (double)experiment_iter;
 
 	cout << "Summary:" << endl;
 	cout << "  Code duration: " << elapsed_time << " ms." << endl;
-    cout << "  Number of experiments: " << num_experiments << "." << endl;
-	cout << "  Average experiment time: " << average_experiment_time << " ms." << endl << endl;
+    cout << "  Number of experiments: " << experiment_iter << "." << endl;
+	cout << "  Mean experiment time: " << mean_experiment_time << " ms." << endl << endl;
 }
 
 int main( int, char*[] )
@@ -77,20 +69,20 @@ int main( int, char*[] )
 	srand( time( 0 ) );
 	int test_rand_num = rand();
     
-    // Looping over lines in the input pattern file.
+    // Looping over lines in the input file.
     
     ifstream ifs(input_file);
     
     string line_data;
     getline( ifs, line_data );
     
-    int num_experiments = 0;
+    int experiment_iter = 0;
     
     while (getline( ifs, line_data ))
     {
         clock_t start_experiment = clock(); // Starts the stopwatch that measures the duration of the experiment.
         
-        ++num_experiments;
+        ++experiment_iter;
         
         // Reading the pattern. Ie. the type of graph, size of cloud etc.
 
@@ -126,19 +118,19 @@ int main( int, char*[] )
 
             // Printing to cout information about the iteration. Ie. duration.
 
-            Print_Iter_Summary( iteration, start_iter );
+            Print_Iter_Summary( start_iter, iteration );
         }
         
         // Printing to cout information about the experiment. Ie. duration.
         
-        Print_Experiment_Summary( start_experiment, num_experiments );
+        Print_Experiment_Summary( start_experiment, experiment_iter, repetitions );
     }
     
     ifs.close();
 
 	// Printing to cout informaion about the run. Ie. duration.
 
-	Print_Summary( start_time, num_experiments );
+	Print_Summary( start_time, experiment_iter );
 
 	return 0;
 }

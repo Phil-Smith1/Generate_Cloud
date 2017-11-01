@@ -2,8 +2,6 @@
 
 #include "Data_Pt.h"
 
-using namespace std;
-
 const double big_constant = 1e+64;
 
 void Bounding_Box ( vector<Data_Pt>const& cloud, pair<Point2d, Point2d>& cloud_box )
@@ -23,13 +21,10 @@ void Bounding_Box ( vector<Data_Pt>const& cloud, pair<Point2d, Point2d>& cloud_b
 void Scaling_Parameters ( vector<Data_Pt>const& cloud, Point image_sizes, double& scale, Point2d& shift )
 {
 	pair<Point2d, Point2d> box;
-
 	Bounding_Box(cloud, box);
 
 	Point2d cloud_sizes(box.second.x - box.first.x, box.second.y - box.first.y);
-
 	Point2d cloud_center(box.second.x + box.first.x, box.second.y + box.first.y);
-
 	cloud_center /= 2;
 
 	Point2d image_center(image_sizes.x / 2, image_sizes.y / 2);

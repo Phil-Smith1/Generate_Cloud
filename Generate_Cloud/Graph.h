@@ -1,8 +1,8 @@
 #pragma once
 
-#include<opencv2/highgui/highgui.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
-#include<boost/graph/adjacency_list.hpp>
+#include <boost/graph/adjacency_list.hpp>
 
 using namespace std;
 using namespace cv;

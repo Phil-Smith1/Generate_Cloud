@@ -9,6 +9,8 @@ void Lattice_Graph ( int pattern_size, Graph& g )
     
 	vector<Graph::vertex_descriptor> v;
 	vector<pair<Graph::edge_descriptor, bool>> e;
+    v.clear();
+    e.clear();
 
 	for (int iter_1 = 0; iter_1 < rows + 1; ++iter_1)
 	{
