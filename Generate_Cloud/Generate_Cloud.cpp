@@ -13,7 +13,11 @@
 
 // Global variables.
 
-const int repetitions = 1; // Number of iterations in each experiment.
+const int repetitions = 100; // Number of iterations in each experiment.
+
+const bool var_cloud_size = true; // If true, cloud size becomes dependent on graph length.
+
+const int pts_per_unit_length = 100; // Number of points per unit length is var_cloud_size is true.
 
 // Global constants.
 
@@ -103,7 +107,7 @@ int main( int, char*[] )
 
             vector<Data_Pt> cloud;
             cloud.clear();
-            Generate_Cloud( g, pat.cloud_size, pat.noise_type, pat.noise_parameter, cloud );
+            Generate_Cloud( g, pat.cloud_size, pat.noise_type, pat.noise_parameter, var_cloud_size, pts_per_unit_length, cloud );
 
             // Writing the cloud to a txt file.
 
@@ -114,7 +118,7 @@ int main( int, char*[] )
             const Point image_sizes(800, 800);
             Mat image(image_sizes, CV_8UC3, white);
             
-            Write_Image( image_directory, pat, iteration, image_sizes, black, cloud, image );
+            if (iteration % 20 == 0) Write_Image( image_directory, pat, iteration, image_sizes, black, cloud, image );
 
             // Printing to cout information about the iteration. Ie. duration.
 

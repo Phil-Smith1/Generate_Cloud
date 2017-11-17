@@ -5,7 +5,7 @@
 #include "Data_Pt.h"
 #include "Generate_Pt.h"
 
-void Generate_Cloud ( Graph& g, int& cloud_size, string const& noise_type, double noise_parameter, vector<Data_Pt>& cloud )
+void Generate_Cloud ( Graph& g, int& cloud_size, string const& noise_type, double noise_parameter, bool var_cloud_size, int pts_per_unit_length, vector<Data_Pt>& cloud )
 {
 	double total_length = 0;
     
@@ -16,12 +16,9 @@ void Generate_Cloud ( Graph& g, int& cloud_size, string const& noise_type, doubl
 		total_length += weight[*EdgePair.first];
 	}
     
-    bool variable_cloud_size = true;
-    int points_per_unit_length = 100;
-    
-    if (variable_cloud_size)
+    if (var_cloud_size)
     {
-        cloud_size = total_length * points_per_unit_length;
+        cloud_size = total_length * pts_per_unit_length;
     }
 
 	Point2d pt;

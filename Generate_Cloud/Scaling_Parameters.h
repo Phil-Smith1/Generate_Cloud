@@ -29,7 +29,7 @@ void Scaling_Parameters ( vector<Data_Pt>const& cloud, Point image_sizes, double
 
 	Point2d image_center(image_sizes.x / 2, image_sizes.y / 2);
 
-	scale = min(image_sizes.x / cloud_sizes.x, image_sizes.y / cloud_sizes.y);
+	scale = min( image_sizes.x / cloud_sizes.x, image_sizes.y / cloud_sizes.y );
 
 	// transformation: point -> scale * (point - cloud_center) + image_center. 
 
