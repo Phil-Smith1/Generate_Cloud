@@ -6,9 +6,9 @@
 #include "Generate_Noise_Uniform_Pt.h"
 #include "Generate_Gaussian_Pt.h"
 
-void Generate_Pt ( Graph& g, double total_length, string const& noise_type, double noise_parameter, Point2d& pt )
+void Generate_Pt ( Graph& g, double graph_length, string const& noise_type, double noise_parameter, Point2d& pt )
 {
-	double rand_num = (rand() % 1000) * total_length / (double)1000;
+	double rand_num = (rand() % 1000) * graph_length / (double)1000;
 
 	double cumulative_length = 0, dist;
     Weight weight = get( boost::edge_weight, g );
@@ -35,7 +35,7 @@ void Generate_Pt ( Graph& g, double total_length, string const& noise_type, doub
     
     if (noise_type == "Noise_Uniform")
     {
-        Generate_Noise_Uniform_Pt( noise_parameter, pt );
+        Generate_Noise_Uniform_Pt( unit_edge_direction, noise_parameter, pt );
     }
     
     else if (noise_type == "Gaussian")

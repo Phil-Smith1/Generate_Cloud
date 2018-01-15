@@ -4,10 +4,10 @@
 
 #include "Scaling_Parameters.h"
 #include "Draw_Cloud.h"
-#include "Image_Directory.h"
-#include "Image_File_Name.h"
+#include "Directory.h"
+#include "File_Name.h"
 
-void Write_Image ( string const& image_directory, Pattern const& pat, int iteration, Point const& image_sizes, Scalar const& colour, vector<Data_Pt>const& cloud, Mat& image )
+void Write_Image ( string const& image_directory, Input const& input, int iteration, Point const& image_sizes, Scalar const& colour, vector<Data_Pt>const& cloud, Mat& image )
 {
     double scale;
     Point2d shift;
@@ -17,7 +17,7 @@ void Write_Image ( string const& image_directory, Pattern const& pat, int iterat
     Draw_Cloud( cloud, scale, shift, colour, image );
     
     string directory;
-    Image_Directory( image_directory, pat, directory );
+    Directory( image_directory, input, directory );
     
     if(!boost::filesystem::is_directory( directory ))
     {
@@ -25,7 +25,7 @@ void Write_Image ( string const& image_directory, Pattern const& pat, int iterat
     }
     
     string image_file;
-    Image_File_Name( directory, pat, iteration, image_file );
+    File_Name( directory, "Image", iteration, ".png", image_file );
     
     imwrite( image_file, image );
 }
