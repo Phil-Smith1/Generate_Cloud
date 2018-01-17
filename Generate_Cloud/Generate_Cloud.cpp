@@ -22,8 +22,8 @@ vector<int> concentric_squares_range = { 2, 3, 4, 5 };
 bool graph_dependent_cloud_size = true;
 int cloud_size_parameter = 100;
 
-string noise_type = "Gaussian";
-double noise_parameter = 0.1;
+string noise_type = "Noise_Uniform";
+double noise_parameter = 0.45;
 
 int repetitions = 100;
 
@@ -46,7 +46,7 @@ int main( int, char*[] )
 
 	// Seeding the random number generator.
 
-	srand( time( 0 ) );
+	srand( (int)time( 0 ) );
 	int test_rand_num = rand();
     
     // Write input.
