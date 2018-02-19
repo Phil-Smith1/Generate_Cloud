@@ -36,9 +36,10 @@ const Scalar black = CV_RGB( 0, 0, 0 );
 
 // Directories.
 
-const string input_file = "/Users/philsmith/Documents/Xcode Projects/Input/Input.txt";
-const string cloud_directory = "/Users/philsmith/Documents/Xcode Projects/Clouds/";
-const string image_directory = "/Users/philsmith/Documents/Xcode Projects/Images/Clouds/";
+const string root_directory = "/Users/philsmith/Documents/Xcode Projects/Cloud_Skeletonization/";
+const string input_file = root_directory + "Input/Input.txt";
+const string cloud_directory = root_directory + "Clouds/";
+const string image_directory = root_directory + "Images/Clouds/";
 
 int main( int, char*[] )
 {
