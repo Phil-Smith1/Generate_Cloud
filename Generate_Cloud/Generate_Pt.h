@@ -3,7 +3,7 @@
 #include <string>
 
 #include "Graph.h"
-#include "Generate_Noise_Uniform_Pt.h"
+#include "Generate_Uniform_Pt.h"
 #include "Generate_Gaussian_Pt.h"
 
 void Generate_Pt ( Graph& g, double graph_length, string const& noise_type, double noise_parameter, Point2d& pt )
@@ -35,7 +35,7 @@ void Generate_Pt ( Graph& g, double graph_length, string const& noise_type, doub
     
     if (noise_type == "Noise_Uniform")
     {
-        Generate_Noise_Uniform_Pt( unit_edge_direction, noise_parameter, pt );
+        Generate_Uniform_Pt( unit_edge_direction, noise_parameter, pt );
     }
     
     else if (noise_type == "Gaussian")

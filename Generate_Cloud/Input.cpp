@@ -12,5 +12,4 @@ Input::Input ( string const& p_t, int p_s, bool g_d_c_s, int c_s_p, string const
 }
 
 Input::Input(){}
-
 Input::~Input(){}

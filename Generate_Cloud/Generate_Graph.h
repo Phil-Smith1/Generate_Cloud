@@ -3,7 +3,6 @@
 #include "Input.h"
 #include "Wheel_Graph.h"
 #include "Lattice_Graph.h"
-#include "Row_Graph.h"
 #include "Concentric_Squares_Graph.h"
 #include "Betti_Num.h"
 
@@ -16,12 +15,12 @@ void Generate_Graph ( Input const& input, size_t& Betti_num, Graph& g )
 
 	else if (input.pattern_type == "Lattice")
 	{
-		Lattice_Graph( input.pattern_size, g );
+		Lattice_Graph( input.pattern_size, input.pattern_size, g );
 	}
     
     else if (input.pattern_type == "Row")
     {
-        Row_Graph( input.pattern_size, g );
+        Lattice_Graph( 1, input.pattern_size, g );
     }
     
     else if (input.pattern_type == "Concentric_Squares")

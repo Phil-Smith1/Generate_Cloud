@@ -4,7 +4,7 @@
 
 using namespace cv;
 
-void Generate_Noise_Uniform_Pt ( Point2d unit_edge_direction, double noise_parameter, Point2d& pt )
+void Generate_Uniform_Pt ( Point2d unit_edge_direction, double noise_parameter, Point2d& pt )
 {
     double rand_num = ((rand() % 1000) * 2 * noise_parameter / (double)1000) - noise_parameter;
     

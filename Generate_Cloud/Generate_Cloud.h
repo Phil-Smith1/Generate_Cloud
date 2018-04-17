@@ -27,6 +27,6 @@ void Generate_Cloud ( Graph& g, Input& input, double& graph_length, vector<Data_
 	for (int counter = 0; counter < cloud_size; ++counter)
 	{
 		Generate_Pt( g, graph_length, input.noise_type, input.noise_parameter, pt );
-		cloud.push_back( Data_Pt(pt) );
+		cloud.push_back( Data_Pt( pt ) );
 	}
 }

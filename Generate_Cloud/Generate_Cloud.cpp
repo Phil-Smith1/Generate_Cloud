@@ -1,4 +1,4 @@
-// Code to generate clouds.
+// Code to generate point clouds for the data skeletonization dataset.
 
 // Inclusions.
 
@@ -22,12 +22,12 @@ vector<int> concentric_squares_range = { 2, 3, 4, 5 };
 bool graph_dependent_cloud_size = true;
 int cloud_size_parameter = 100;
 
-string noise_type = "Noise_Uniform";
-double noise_parameter = 0.45;
+string noise_type = "Gaussian";
+vector<double> noise_parameter_range = { 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1 };
 
 int repetitions = 100;
 
-Custom custom( wheel_range, lattice_range, row_range, concentric_squares_range, graph_dependent_cloud_size, cloud_size_parameter, noise_type, noise_parameter, repetitions );
+Run_Input run_input( wheel_range, lattice_range, row_range, concentric_squares_range, graph_dependent_cloud_size, cloud_size_parameter, noise_type, noise_parameter_range, repetitions );
 
 // Global constants.
 
@@ -48,15 +48,15 @@ int main( int, char*[] )
 	// Seeding the random number generator.
 
 	srand( (int)time( 0 ) );
-	int test_rand_num = rand();
     
     // Write input.
     
-    if (write_input) Write_Input( input_file, custom );
+    if (write_input) Write_Input( input_file, run_input );
     
     // Looping over lines in the input file.
     
     ifstream ifs( input_file );
+    
     string line_data;
     getline( ifs, line_data );
     
@@ -71,6 +71,7 @@ int main( int, char*[] )
         // Reading the input.
 
         Input input;
+        
         Read_Input( line_data, input );
 
         for (int iteration = 0; iteration < input.repetitions; ++iteration) // Loop to produce multiple clouds.
@@ -80,7 +81,6 @@ int main( int, char*[] )
             // Generating the graph.
 
             Graph g;
-            g.clear();
             size_t Betti_num;
             
             Generate_Graph( input, Betti_num, g );
@@ -88,7 +88,6 @@ int main( int, char*[] )
             // Generating the cloud.
 
             vector<Data_Pt> cloud;
-            cloud.clear();
             double graph_length = 0;
             
             Generate_Cloud( g, input, graph_length, cloud );

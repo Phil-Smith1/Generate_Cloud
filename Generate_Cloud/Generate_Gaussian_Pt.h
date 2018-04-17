@@ -11,11 +11,11 @@ void Generate_Gaussian_Pt ( Point2d direction_vector, double noise_parameter, Po
     default_random_engine generator;
     random_device rd;
     generator.seed( rd() );
-    normal_distribution<double> distribution(0, noise_parameter);
+    normal_distribution<double> distribution( 0, noise_parameter );
     
     double rand = distribution( generator );
     
-    Point2d normal_vector = Point2d(-direction_vector.y, direction_vector.x);
+    Point2d normal_vector = Point2d( -direction_vector.y, direction_vector.x );
     
     pt += rand * normal_vector;
 }
