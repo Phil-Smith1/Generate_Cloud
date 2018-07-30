@@ -2,30 +2,25 @@
 
 #include "Input.h"
 #include "Wheel_Graph.h"
-#include "Lattice_Graph.h"
-#include "Concentric_Squares_Graph.h"
+#include "Grid_Graph.h"
+#include "Squares_Graph.h"
 #include "Betti_Num.h"
 
-void Generate_Graph ( Input const& input, size_t& Betti_num, Graph& g )
+void Generate_Graph ( Input const& input, size_t& Betti_num, vector<bool>& diagonal_edges, Graph& g )
 {
-	if (input.pattern_type == "Wheel")
+	if (input.pattern_type == "wheel")
 	{
-		Wheel_Graph( input.pattern_size, g );
+		Wheel_Graph( input.pattern_size_1, g );
 	}
 
-	else if (input.pattern_type == "Lattice")
+	else if (input.pattern_type == "grid")
 	{
-		Lattice_Graph( input.pattern_size, input.pattern_size, g );
+		Grid_Graph( input.pattern_size_1, input.pattern_size_2, g );
 	}
     
-    else if (input.pattern_type == "Row")
+    else if (input.pattern_type == "squares")
     {
-        Lattice_Graph( 1, input.pattern_size, g );
-    }
-    
-    else if (input.pattern_type == "Concentric_Squares")
-    {
-        Concentric_Squares_Graph( input.pattern_size, g );
+        Squares_Graph( input.pattern_size_1, diagonal_edges, g );
     }
     
     Betti_num = Betti_Num( g );

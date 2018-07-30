@@ -7,12 +7,31 @@ void Directory ( string const& input_directory, Input const& input, string& dire
 {
     if (input.graph_dependent_cloud_size)
     {
-        directory = input_directory + "Graph_Dependent_Cloud_Size/" + Num_To_String( input.cloud_size_parameter ) +
-        "/" + input.noise_type + "/" + Num_To_String( input.noise_parameter ) + "/" + input.pattern_type + "/Size_" + Num_To_String( input.pattern_size );
+        if (input.pattern_type == "grid")
+        {
+            directory = input_directory + "Graph_Dependent_Cloud_Size/" + Num_To_String( input.cloud_size_parameter ) +
+            "/" + input.noise_type + "/" + Num_To_String( input.noise_parameter ) + "/" + input.pattern_type + "/" + Num_To_String( input.pattern_size_1 ) + "," + Num_To_String( input.pattern_size_2 );
+        }
+        
+        else
+        {
+            directory = input_directory + "Graph_Dependent_Cloud_Size/" + Num_To_String( input.cloud_size_parameter ) +
+            "/" + input.noise_type + "/" + Num_To_String( input.noise_parameter ) + "/" + input.pattern_type + "/" + Num_To_String( input.pattern_size_1 );
+        }
     }
     
     else
     {
-        directory = input_directory + "/Cloud_" + Num_To_String( input.cloud_size_parameter ) + "/" + input.noise_type + "/" + Num_To_String( input.noise_parameter ) + "/" + input.pattern_type + "/Size_" + Num_To_String( input.pattern_size );
+        if (input.pattern_type == "grid")
+        {
+            directory = input_directory + "/Cloud_" + Num_To_String( input.cloud_size_parameter ) +
+            "/" + input.noise_type + "/" + Num_To_String( input.noise_parameter ) + "/" + input.pattern_type + "/" + Num_To_String( input.pattern_size_1 ) + "," + Num_To_String( input.pattern_size_2 );
+        }
+        
+        else
+        {
+            directory = input_directory + "/Cloud_" + Num_To_String( input.cloud_size_parameter ) +
+            "/" + input.noise_type + "/" + Num_To_String( input.noise_parameter ) + "/" + input.pattern_type + "/" + Num_To_String( input.pattern_size_1 );
+        }
     }
 }

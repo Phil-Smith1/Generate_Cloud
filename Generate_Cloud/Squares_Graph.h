@@ -2,7 +2,7 @@
 
 #include "Graph.h"
 
-void Concentric_Squares_Graph ( int num_squares, Graph& g )
+void Squares_Graph ( int num_squares, vector<bool>& diagonal_edges, Graph& g )
 {
     vector<Graph::vertex_descriptor> v;
     vector<pair<Graph::edge_descriptor, bool>> e;
@@ -51,6 +51,7 @@ void Concentric_Squares_Graph ( int num_squares, Graph& g )
             }
             
             edges[edge] = true;
+            diagonal_edges[4 * counter_1 + edge] = true;
             
             e.push_back( boost::add_edge( v[4 * counter_1 + edge], v[4 * counter_1 + 4 + edge], g ) );
             Point2d source = g[boost::source( e.back().first, g )].pt;

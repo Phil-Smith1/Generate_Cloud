@@ -2,7 +2,7 @@
 
 #include "Graph.h"
 
-void Lattice_Graph ( int rows, int cols, Graph& g )
+void Grid_Graph ( int cols, int rows, Graph& g )
 {
 	vector<Graph::vertex_descriptor> v;
 	vector<pair<Graph::edge_descriptor, bool>> e;

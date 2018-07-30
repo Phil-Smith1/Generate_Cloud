@@ -33,12 +33,12 @@ void Generate_Pt ( Graph& g, double graph_length, string const& noise_type, doub
 
 	pt = g[boost::source( *edge, g )].pt + unit_edge_direction * dist;
     
-    if (noise_type == "Noise_Uniform")
+    if (noise_type == "uniform")
     {
         Generate_Uniform_Pt( unit_edge_direction, noise_parameter, pt );
     }
     
-    else if (noise_type == "Gaussian")
+    else if (noise_type == "gaussian")
     {
         Generate_Gaussian_Pt( unit_edge_direction, noise_parameter, pt );
     }
