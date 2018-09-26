@@ -1,8 +1,9 @@
 #include "Input.h"
 
-Input::Input ( string const& p_t, int p_s_1, int p_s_2, bool g_d_c_s, int c_s_p, string const& n_t, double n_p, int r )
+Input::Input ( string const& p_t, bool reg, int p_s_1, int p_s_2, bool g_d_c_s, int c_s_p, string const& n_t, double n_p, int r )
 {
     pattern_type = p_t;
+    regular = reg;
     pattern_size_1 = p_s_1;
     pattern_size_2 = p_s_2;
     graph_dependent_cloud_size = g_d_c_s;

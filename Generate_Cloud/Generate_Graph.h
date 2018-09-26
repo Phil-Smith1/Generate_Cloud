@@ -15,7 +15,7 @@ void Generate_Graph ( Input const& input, size_t& Betti_num, vector<bool>& diago
 
 	else if (input.pattern_type == "grid")
 	{
-		Grid_Graph( input.pattern_size_1, input.pattern_size_2, g );
+		Grid_Graph( input.pattern_size_1, input.pattern_size_2, input.regular, g );
 	}
     
     else if (input.pattern_type == "squares")

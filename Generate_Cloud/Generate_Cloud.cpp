@@ -17,19 +17,22 @@
 bool write_input = true;
 
 vector<int> wheel_range = { /*3, 4, 5, 6, 7, 8, 9, 10*/ };
-vector<int> grid_cols_range = { /*1, 2, 3, 4, 5*/ };
-vector<int> grid_rows_range = { /*1, 2, 3, 4, 5*/ };
-vector<int> squares_range = { 2, 3, 4, 5 };
+vector<int> grid_cols_range = { 5/*1, 2, 3, 4, 5*/ };
+vector<int> grid_rows_range = { 5/*1, 2, 3, 4, 5*/ };
+
+bool regular = false;
+
+vector<int> squares_range = { /*2, 3, 4, 5*/ };
 
 bool graph_dependent_cloud_size = true;
 int cloud_size_parameter = 100;
 
 string noise_type = "uniform";
-vector<double> noise_parameter_range = { 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4/*0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1*/ };
+vector<double> noise_parameter_range = { 0.05/*0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4/*0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1*/ };
 
-int repetitions = 100;
+int repetitions = 1;
 
-Run_Input run_input( wheel_range, grid_cols_range, grid_rows_range, squares_range, graph_dependent_cloud_size, cloud_size_parameter, noise_type, noise_parameter_range, repetitions );
+Run_Input run_input( wheel_range, grid_cols_range, grid_rows_range, regular, squares_range, graph_dependent_cloud_size, cloud_size_parameter, noise_type, noise_parameter_range, repetitions );
 
 // Global constants.
 

@@ -14,7 +14,15 @@ void Write_Graph_Image ( string const& graph_image_directory, Input const& input
     
     if (input.pattern_type == "grid")
     {
-        directory = graph_image_directory + input.pattern_type + "/" + Num_To_String( input.pattern_size_1 ) + "," + Num_To_String( input.pattern_size_2 );
+        if (input.regular)
+        {
+            directory = graph_image_directory + input.pattern_type + "/Regular/" + Num_To_String( input.pattern_size_1 ) + "," + Num_To_String( input.pattern_size_2 );
+        }
+        
+        else
+        {
+            directory = graph_image_directory + input.pattern_type + "/Varied/" + Num_To_String( input.pattern_size_1 ) + "," + Num_To_String( input.pattern_size_2 );
+        }
     }
     
     else directory = graph_image_directory + input.pattern_type + "/" + Num_To_String( input.pattern_size_1 );
