@@ -17,6 +17,6 @@ void Read_Input ( string const& line_data, Input& input )
     stream >> p_t >> reg >> p_s_1 >> p_s_2 >> g_d_c_s >> c_s_p >> n_t >> n_p >> r;
 
     Input inp( p_t, reg, p_s_1, p_s_2, g_d_c_s, c_s_p, n_t, n_p, r );
-
+    
     input = inp;
 }

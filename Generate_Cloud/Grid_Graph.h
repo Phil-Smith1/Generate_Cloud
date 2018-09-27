@@ -30,8 +30,8 @@ void Grid_Graph ( int cols, int rows, bool regular, Graph& g )
                 
                 double x_coord = iter_2, y_coord = iter_1;
                 
-                if (iter_2 > 1) x_coord += x_stretch * (iter_2 - 1);
-                if (iter_1 > 1) y_coord += y_stretch * (iter_1 - 1);
+                if (iter_2 > 1) x_coord += x_stretch * iter_2 * (iter_2 - 1) / 2;
+                if (iter_1 > 1) y_coord += y_stretch * iter_1 * (iter_1 - 1) / 2;
                 
                 v.push_back( boost::add_vertex( g ) );
                 g[v.back()].pt = Point2d( x_coord, y_coord );
