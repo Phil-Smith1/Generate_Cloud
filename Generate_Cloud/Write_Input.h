@@ -27,7 +27,10 @@ void Write_Input ( string const& input_file, Run_Input const& run_input )
         
         for (auto it_2 = run_input.squares_range.begin(); it_2 != run_input.squares_range.end(); ++it_2)
         {
-            ofs << "squares " << run_input.regular << " " << *it_2 << " " << 0 << " " << run_input.graph_dependent_cloud_size << " " << run_input.cloud_size_parameter << " " << run_input.noise_type << " " << *it_1 << " " << run_input.repetitions << endl;
+            for (int counter = 0; counter < (*it_2 - 1) * 5; ++counter)
+            {
+                ofs << "squares " << run_input.regular << " " << *it_2 << " " << 0 << " " << run_input.graph_dependent_cloud_size << " " << run_input.cloud_size_parameter << " " << run_input.noise_type << " " << *it_1 << " " << run_input.repetitions << endl;
+            }
         }
     }
     

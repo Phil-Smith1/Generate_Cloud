@@ -7,7 +7,7 @@
 #include "Directory.h"
 #include "File_Name.h"
 
-void Write_Cloud_Image ( string const& image_directory, Input const& input, vector<bool>const& diagonal_edges, int iteration, Point const& image_sizes, Scalar const& colour, vector<Data_Pt>const& cloud, Mat& image )
+void Write_Cloud_Image ( string const& image_directory, Input const& input, int Betti_num, vector<bool>const& diagonal_edges, int iteration, Point const& image_sizes, Scalar const& colour, vector<Data_Pt>const& cloud, Mat& image )
 {
     double scale;
     Point2d shift;
@@ -18,7 +18,7 @@ void Write_Cloud_Image ( string const& image_directory, Input const& input, vect
     
     string directory;
     
-    Directory( image_directory, input, directory );
+    Directory( image_directory, input, Betti_num, directory );
     
     if(!boost::filesystem::is_directory( directory ))
     {

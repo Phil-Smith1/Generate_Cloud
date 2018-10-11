@@ -6,7 +6,7 @@
 #include "Squares_Graph.h"
 #include "Betti_Num.h"
 
-void Generate_Graph ( Input const& input, size_t& Betti_num, vector<bool>& diagonal_edges, Graph& g )
+void Generate_Graph ( Input const& input, int& Betti_num, double& graph_length, vector<bool>& diagonal_edges, Graph& g )
 {
 	if (input.pattern_type == "wheel")
 	{
@@ -24,4 +24,11 @@ void Generate_Graph ( Input const& input, size_t& Betti_num, vector<bool>& diago
     }
     
     Betti_num = Betti_Num( g );
+    
+    Weight weight = get( boost::edge_weight, g );
+    
+    for (auto EdgePair = boost::edges( g ); EdgePair.first != EdgePair.second; ++EdgePair.first)
+    {
+        graph_length += weight[*EdgePair.first];
+    }
 }

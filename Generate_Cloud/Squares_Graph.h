@@ -35,7 +35,7 @@ void Squares_Graph ( int num_squares, vector<bool>& diagonal_edges, Graph& g )
         boost::put( boost::edge_weight_t(), g, e.back().first, length );
     }
     
-    for (int counter_1 = 0; counter_1 < num_squares - 1; ++counter_1)
+    /*for (int counter_1 = 0; counter_1 < num_squares - 1; ++counter_1)
     {
         int num_connecting_edges = rand() % 4 + 1;
         
@@ -54,6 +54,23 @@ void Squares_Graph ( int num_squares, vector<bool>& diagonal_edges, Graph& g )
             diagonal_edges[4 * counter_1 + edge] = true;
             
             e.push_back( boost::add_edge( v[4 * counter_1 + edge], v[4 * counter_1 + 4 + edge], g ) );
+            Point2d source = g[boost::source( e.back().first, g )].pt;
+            Point2d target = g[boost::target( e.back().first, g )].pt;
+            double length = norm( target - source );
+            boost::put( boost::edge_weight_t(), g, e.back().first, length );
+        }
+    }*/
+    
+    int counter = 0;
+    
+    for (auto it = diagonal_edges.begin(); it != diagonal_edges.end(); ++it, ++counter)
+    {
+        if (*it == true)
+        {
+            int edge = counter % 4;
+            int square = (counter - counter % 4) / 4;
+            
+            e.push_back( boost::add_edge( v[4 * square + edge], v[4 * square + 4 + edge], g ) );
             Point2d source = g[boost::source( e.back().first, g )].pt;
             Point2d target = g[boost::target( e.back().first, g )].pt;
             double length = norm( target - source );

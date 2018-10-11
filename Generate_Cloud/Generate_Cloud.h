@@ -4,15 +4,8 @@
 #include "Data_Pt.h"
 #include "Generate_Pt.h"
 
-void Generate_Cloud ( Graph& g, Input& input, double& graph_length, vector<Data_Pt>& cloud )
+void Generate_Cloud ( Graph& g, Input& input, double graph_length, vector<Data_Pt>& cloud )
 {
-    Weight weight = get( boost::edge_weight, g );
-
-	for (auto EdgePair = boost::edges( g ); EdgePair.first != EdgePair.second; ++EdgePair.first)
-	{
-		graph_length += weight[*EdgePair.first];
-	}
-    
     int cloud_size;
     
     if (input.graph_dependent_cloud_size)

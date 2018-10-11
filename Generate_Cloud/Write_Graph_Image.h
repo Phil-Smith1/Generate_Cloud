@@ -8,7 +8,7 @@
 #include "Graph.h"
 #include "Num_To_String.h"
 
-void Write_Graph_Image ( string const& graph_image_directory, Input const& input, vector<bool>const& diagonal_edges, Graph const& g, Mat& image )
+void Write_Graph_Image ( string const& graph_image_directory, Input const& input, int Betti_num, vector<bool>const& diagonal_edges, Graph const& g, Mat& image )
 {
     string directory;
     
@@ -23,6 +23,11 @@ void Write_Graph_Image ( string const& graph_image_directory, Input const& input
         {
             directory = graph_image_directory + input.pattern_type + "/Varied/" + Num_To_String( input.pattern_size_1 ) + "," + Num_To_String( input.pattern_size_2 );
         }
+    }
+    
+    else if (input.pattern_type == "squares")
+    {
+        directory = graph_image_directory + input.pattern_type + "/" + Num_To_String( input.pattern_size_1 ) + "/" + Num_To_String( Betti_num );
     }
     
     else directory = graph_image_directory + input.pattern_type + "/" + Num_To_String( input.pattern_size_1 );

@@ -4,6 +4,7 @@
 
 #include "Write_Input.h"
 #include "Read_Input.h"
+#include "Diagonal_Edges.h"
 #include "Generate_Graph.h"
 #include "Draw_Graph.h"
 #include "Generate_Cloud.h"
@@ -17,17 +18,17 @@
 bool write_input = true;
 
 vector<int> wheel_range = { /*3, 4, 5, 6, 7, 8, 9, 10*/ };
-vector<int> grid_cols_range = { 1, 2, 3, 4, 5 };
-vector<int> grid_rows_range = { 1, 2, 3, 4, 5 };
+vector<int> grid_cols_range = { /*1, 2, 3, 4, 5*/ };
+vector<int> grid_rows_range = { /*1, 2, 3, 4, 5*/ };
 
 bool regular = false;
 
-vector<int> squares_range = { /*2, 3, 4, 5*/ };
+vector<int> squares_range = { 2, 3 };
 
 bool graph_dependent_cloud_size = true;
 int cloud_size_parameter = 100;
 
-string noise_type = "gaussian";
+string noise_type = "uniform";
 vector<double> noise_parameter_range = { /*0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4*/0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1 };
 
 int repetitions = 100;
@@ -57,6 +58,8 @@ int main( int, char*[] )
     if (write_input) Write_Input( input_file, run_input ); // Writing input.
     
     int experiment_iter = 0; // Counter for the number of experiments performed.
+    pair<int, int> squares_2_iter = pair<int, int>( 2, 0 );
+    pair<int, int> squares_3_iter = pair<int, int>( 3, 0 );
     
     ifstream ifs( input_file );
     string line_data;
@@ -69,17 +72,24 @@ int main( int, char*[] )
         Input input;
         
         Read_Input( line_data, input ); // Reading the input.
+        
+        int Betti_num;
+        double graph_length = 0;
+        vector<bool> diagonal_edges( 4 * (input.pattern_size_1 - 1), false );
+        Graph g;
+        
+        if (input.pattern_type == "squares")
+        {
+            if (input.pattern_size_1 == 2) Diagonal_Edges( squares_2_iter, diagonal_edges );
+            
+            else if (input.pattern_size_1 == 3) Diagonal_Edges( squares_3_iter, diagonal_edges );
+        }
+        
+        Generate_Graph( input, Betti_num, graph_length, diagonal_edges, g ); // Generating the graph.
 
         for (int iteration = 0; iteration < input.repetitions; ++iteration) // Loop to produce multiple clouds.
         {
-            Graph g;
-            size_t Betti_num;
-            vector<bool> diagonal_edges( 4 * (input.pattern_size_1 - 1), false );
-            
-            Generate_Graph( input, Betti_num, diagonal_edges, g ); // Generating the graph.
-            
             vector<Data_Pt> cloud;
-            double graph_length = 0;
             
             Generate_Cloud( g, input, graph_length, cloud ); // Generating the cloud.
 
@@ -93,14 +103,14 @@ int main( int, char*[] )
                 
                 Draw_Graph( g, 3, -1, 1, black, graph_image );
                 
-                Write_Graph_Image( graph_image_directory, input, diagonal_edges, g, graph_image ); // Writing the graph image to a png file.
+                Write_Graph_Image( graph_image_directory, input, Betti_num, diagonal_edges, g, graph_image ); // Writing the graph image to a png file.
             }
             
             if (iteration % 50 == 0)
             {
                 Mat cloud_image( image_sizes, CV_8UC3, white );
                 
-                Write_Cloud_Image( cloud_image_directory, input, diagonal_edges, iteration, image_sizes, black, cloud, cloud_image ); // Writing the cloud image to a png file.
+                Write_Cloud_Image( cloud_image_directory, input, Betti_num, diagonal_edges, iteration, image_sizes, black, cloud, cloud_image ); // Writing the cloud image to a png file.
             }
         }
         

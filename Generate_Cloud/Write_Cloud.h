@@ -9,11 +9,11 @@
 #include "Directory.h"
 #include "File_Name.h"
 
-void Write_Cloud ( string const& cloud_directory, Input const& input, vector<bool>const& diagonal_edges, int iteration, size_t Betti_num, double graph_length, vector<Data_Pt>const& cloud )
+void Write_Cloud ( string const& cloud_directory, Input const& input, vector<bool>const& diagonal_edges, int iteration, int Betti_num, double graph_length, vector<Data_Pt>const& cloud )
 {
     string directory;
     
-    Directory( cloud_directory, input, directory );
+    Directory( cloud_directory, input, Betti_num, directory );
     
     if (!boost::filesystem::is_directory( directory ))
     {

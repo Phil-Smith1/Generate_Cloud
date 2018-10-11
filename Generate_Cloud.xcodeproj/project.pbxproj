@@ -26,6 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EE0354B1216CF4E200CF52AF /* Diagonal_Edges.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Diagonal_Edges.h; sourceTree = "<group>"; };
 		EE052C151F83C3C900535ABA /* Generate_Cloud */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Generate_Cloud; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE052C331F83CC0C00535ABA /* Write_Cloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Write_Cloud.h; sourceTree = "<group>"; };
 		EE052C351F83CC0C00535ABA /* Read_Input.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Read_Input.h; sourceTree = "<group>"; };
@@ -91,6 +92,7 @@
 				EE2328271FDEDE8B0000D309 /* Betti_Num.h */,
 				EE052C3C1F83CC0D00535ABA /* Data_Pt.cpp */,
 				EE052C421F83CC0E00535ABA /* Data_Pt.h */,
+				EE0354B1216CF4E200CF52AF /* Diagonal_Edges.h */,
 				EEEA956C1FA7819C001FB275 /* Directory.h */,
 				EE3AC4CD1F8B7EF400B663E7 /* Draw_Cloud.h */,
 				EE67631F209C882800CAE2AB /* Draw_Graph.h */,
