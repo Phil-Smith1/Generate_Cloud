@@ -8,6 +8,6 @@ void Draw_Cloud ( vector<Data_Pt>const& cloud, double scale, Point2d shift, Scal
 {
     for (auto p : cloud)
     {
-        circle( image, Point(scale * p.pt + shift), 1, colour, 1);
+        circle( image, Point(scale * p.pt + shift), 2, colour, -1);
     }
 }

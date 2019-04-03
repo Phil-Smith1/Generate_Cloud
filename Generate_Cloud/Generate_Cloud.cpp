@@ -17,23 +17,24 @@
 
 bool write_input = true;
 
-vector<int> wheel_range = { /*3, 4, 5, 6, 7, 8, 9, 10*/ };
-vector<int> grid_cols_range = { /*1, 2, 3, 4, 5*/ };
-vector<int> grid_rows_range = { /*1, 2, 3, 4, 5*/ };
+vector<int> wheel_range = { /*3, 4, 5, 6, 7, 8, 9*/ };
+vector<int> grid_cols_range = { /*1, 2, 3*/ };
+vector<int> grid_rows_range = { /*1, 2, 3*/ };
 
-bool regular = false;
+bool regular = true;
 
-vector<int> squares_range = { 2, 3 };
+vector<int> triangles_range = { 1, 2, 3, 4, 5, 6, 7, 8 };
+vector<int> squares_range = { /*2, 3, 4, 5, 6, 7, 8, 9*/ };
 
 bool graph_dependent_cloud_size = true;
 int cloud_size_parameter = 100;
 
-string noise_type = "uniform";
-vector<double> noise_parameter_range = { /*0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4*/0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1 };
+string noise_type = "gaussian";
+vector<double> noise_parameter_range = { /*0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4*/ 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2 };
 
-int repetitions = 100;
+int repetitions = 200;
 
-Run_Input run_input( wheel_range, grid_cols_range, grid_rows_range, regular, squares_range, graph_dependent_cloud_size, cloud_size_parameter, noise_type, noise_parameter_range, repetitions );
+Run_Input run_input( wheel_range, grid_cols_range, grid_rows_range, regular, triangles_range, squares_range, graph_dependent_cloud_size, cloud_size_parameter, noise_type, noise_parameter_range, repetitions );
 
 // Global constants.
 
@@ -58,8 +59,6 @@ int main( int, char*[] )
     if (write_input) Write_Input( input_file, run_input ); // Writing input.
     
     int experiment_iter = 0; // Counter for the number of experiments performed.
-    pair<int, int> squares_2_iter = pair<int, int>( 2, 0 );
-    pair<int, int> squares_3_iter = pair<int, int>( 3, 0 );
     
     ifstream ifs( input_file );
     string line_data;
@@ -75,15 +74,8 @@ int main( int, char*[] )
         
         int Betti_num;
         double graph_length = 0;
-        vector<bool> diagonal_edges( 4 * (input.pattern_size_1 - 1), false );
+        vector<bool> diagonal_edges( 8 );
         Graph g;
-        
-        if (input.pattern_type == "squares")
-        {
-            if (input.pattern_size_1 == 2) Diagonal_Edges( squares_2_iter, diagonal_edges );
-            
-            else if (input.pattern_size_1 == 3) Diagonal_Edges( squares_3_iter, diagonal_edges );
-        }
         
         Generate_Graph( input, Betti_num, graph_length, diagonal_edges, g ); // Generating the graph.
 

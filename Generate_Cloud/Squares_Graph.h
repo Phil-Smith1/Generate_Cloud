@@ -2,8 +2,13 @@
 
 #include "Graph.h"
 
-void Squares_Graph ( int num_squares, vector<bool>& diagonal_edges, Graph& g )
+void Squares_Graph ( int Betti_num, vector<bool>& diagonal_edges, Graph& g )
 {
+    int num_squares;
+    
+    if (Betti_num < 6) num_squares = 2;
+    else num_squares = 3;
+    
     vector<Graph::vertex_descriptor> v;
     vector<pair<Graph::edge_descriptor, bool>> e;
     
@@ -14,10 +19,10 @@ void Squares_Graph ( int num_squares, vector<bool>& diagonal_edges, Graph& g )
         v.push_back( boost::add_vertex( g ) );
         v.push_back( boost::add_vertex( g ) );
         
-        g[v[4 * counter_1]].pt = Point2d( -0.5 - counter_1, -0.5 - counter_1 );
-        g[v[4 * counter_1 + 1]].pt = Point2d( -0.5 - counter_1, 0.5 + counter_1 );
-        g[v[4 * counter_1 + 2]].pt = Point2d( 0.5 + counter_1, 0.5 + counter_1 );
-        g[v[4 * counter_1 + 3]].pt = Point2d( 0.5 + counter_1, -0.5 - counter_1 );
+        g[v[4 * counter_1]].pt = Point2d( -0.5 - counter_1 / (double)sqrt( 2 ), -0.5 - counter_1 / (double)sqrt( 2 ) );
+        g[v[4 * counter_1 + 1]].pt = Point2d( -0.5 - counter_1 / (double)sqrt( 2 ), 0.5 + counter_1 / (double)sqrt( 2 ) );
+        g[v[4 * counter_1 + 2]].pt = Point2d( 0.5 + counter_1 / (double)sqrt( 2 ), 0.5 + counter_1 / (double)sqrt( 2 ) );
+        g[v[4 * counter_1 + 3]].pt = Point2d( 0.5 + counter_1 / (double)sqrt( 2 ), -0.5 - counter_1 / (double)sqrt( 2 ) );
         
         for (int counter_2 = 0; counter_2 < 3; ++counter_2)
         {
@@ -35,31 +40,7 @@ void Squares_Graph ( int num_squares, vector<bool>& diagonal_edges, Graph& g )
         boost::put( boost::edge_weight_t(), g, e.back().first, length );
     }
     
-    /*for (int counter_1 = 0; counter_1 < num_squares - 1; ++counter_1)
-    {
-        int num_connecting_edges = rand() % 4 + 1;
-        
-        bool edges[4] = { false, false, false, false };
-        
-        for (int counter_2 = 0; counter_2 < num_connecting_edges; ++counter_2)
-        {
-            int edge = rand() % 4;
-            
-            while(edges[edge])
-            {
-                edge = rand() % 4;
-            }
-            
-            edges[edge] = true;
-            diagonal_edges[4 * counter_1 + edge] = true;
-            
-            e.push_back( boost::add_edge( v[4 * counter_1 + edge], v[4 * counter_1 + 4 + edge], g ) );
-            Point2d source = g[boost::source( e.back().first, g )].pt;
-            Point2d target = g[boost::target( e.back().first, g )].pt;
-            double length = norm( target - source );
-            boost::put( boost::edge_weight_t(), g, e.back().first, length );
-        }
-    }*/
+    Diagonal_Edges( Betti_num, diagonal_edges );
     
     int counter = 0;
     

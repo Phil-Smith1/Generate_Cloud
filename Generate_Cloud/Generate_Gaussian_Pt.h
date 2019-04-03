@@ -15,7 +15,13 @@ void Generate_Gaussian_Pt ( Point2d direction_vector, double noise_parameter, Po
     
     double rand = distribution( generator );
     
-    Point2d normal_vector = Point2d( -direction_vector.y, direction_vector.x );
+    Point2d parallel_shift = rand * direction_vector;
     
-    pt += rand * normal_vector;
+    rand = distribution( generator );
+    
+    Point2d normal_shift = rand * Point2d( -direction_vector.y, direction_vector.x );
+    
+    Point2d shift = parallel_shift + normal_shift;
+    
+    pt += shift;
 }

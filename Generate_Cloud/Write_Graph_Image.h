@@ -25,11 +25,6 @@ void Write_Graph_Image ( string const& graph_image_directory, Input const& input
         }
     }
     
-    else if (input.pattern_type == "squares")
-    {
-        directory = graph_image_directory + input.pattern_type + "/" + Num_To_String( input.pattern_size_1 ) + "/" + Num_To_String( Betti_num );
-    }
-    
     else directory = graph_image_directory + input.pattern_type + "/" + Num_To_String( input.pattern_size_1 );
     
     if(!boost::filesystem::is_directory( directory ))
@@ -42,16 +37,6 @@ void Write_Graph_Image ( string const& graph_image_directory, Input const& input
     if (input.pattern_type == "grid")
     {
         file_name = directory + "/" + input.pattern_type + Num_To_String( input.pattern_size_1 ) + "," + Num_To_String( input.pattern_size_2 ) + "_graph.png";
-    }
-    
-    else if (input.pattern_type == "squares")
-    {
-        file_name = directory + "/" + input.pattern_type + Num_To_String( diagonal_edges[0] ) + Num_To_String( diagonal_edges[1] ) + Num_To_String( diagonal_edges[2] ) + Num_To_String( diagonal_edges[3] );
-        for (int counter = 1; counter < input.pattern_size_1 - 1; ++counter)
-        {
-            file_name += "," + Num_To_String( diagonal_edges[counter * 4] )  + Num_To_String( diagonal_edges[counter * 4 + 1] ) + Num_To_String( diagonal_edges[counter * 4 + 2] ) + Num_To_String( diagonal_edges[counter * 4 + 3] );
-        }
-        file_name += "_graph.png";
     }
     
     else
