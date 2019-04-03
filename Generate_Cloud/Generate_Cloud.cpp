@@ -23,7 +23,8 @@ vector<int> grid_rows_range = { /*1, 2, 3*/ };
 
 bool regular = true;
 
-vector<int> triangles_range = { 1, 2, 3, 4, 5, 6, 7, 8 };
+vector<int> triangles_range = { /*1, 2, 3, 4, 5, 6, 7, 8*/ };
+vector<int> hexagonal_range = { 1, 2, 3, 4, 5, 6, 7 };
 vector<int> squares_range = { /*2, 3, 4, 5, 6, 7, 8, 9*/ };
 
 bool graph_dependent_cloud_size = true;
@@ -34,7 +35,7 @@ vector<double> noise_parameter_range = { /*0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35
 
 int repetitions = 200;
 
-Run_Input run_input( wheel_range, grid_cols_range, grid_rows_range, regular, triangles_range, squares_range, graph_dependent_cloud_size, cloud_size_parameter, noise_type, noise_parameter_range, repetitions );
+Run_Input run_input( wheel_range, grid_cols_range, grid_rows_range, regular, triangles_range, hexagonal_range, squares_range, graph_dependent_cloud_size, cloud_size_parameter, noise_type, noise_parameter_range, repetitions );
 
 // Global constants.
 
@@ -98,7 +99,7 @@ int main( int, char*[] )
                 Write_Graph_Image( graph_image_directory, input, Betti_num, diagonal_edges, g, graph_image ); // Writing the graph image to a png file.
             }
             
-            if (iteration % 50 == 0)
+            if (iteration == 0)
             {
                 Mat cloud_image( image_sizes, CV_8UC3, white );
                 

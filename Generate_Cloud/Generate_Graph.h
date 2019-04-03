@@ -4,6 +4,7 @@
 #include "Wheel_Graph.h"
 #include "Grid_Graph.h"
 #include "Triangles_Graph.h"
+#include "Hexagonal_Graph.h"
 #include "Squares_Graph.h"
 #include "Betti_Num.h"
 
@@ -22,6 +23,11 @@ void Generate_Graph ( Input const& input, int& Betti_num, double& graph_length, 
     else if (input.pattern_type == "triangles")
     {
         Triangles_Graph( input.pattern_size_1, g );
+    }
+    
+    else if (input.pattern_type == "hexagonal")
+    {
+        Hexagonal_Graph( input.pattern_size_1, g );
     }
     
     else if (input.pattern_type == "squares")
