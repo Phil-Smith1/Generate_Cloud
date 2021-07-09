@@ -18,22 +18,22 @@
 bool write_input = true;
 
 vector<int> wheel_range = { /*3, 4, 5, 6, 7, 8, 9*/ };
-vector<int> grid_cols_range = { /*1, 2, 3*/ };
-vector<int> grid_rows_range = { /*1, 2, 3*/ };
+vector<int> grid_cols_range = { /*1, 2, 3*/ 4 };
+vector<int> grid_rows_range = { /*1, 2, 3*/ 4 };
 
 bool regular = true;
 
 vector<int> triangles_range = { /*1, 2, 3, 4, 5, 6, 7, 8*/ };
-vector<int> hexagonal_range = { 1, 2, 3, 4, 5, 6, 7 };
+vector<int> hexagonal_range = { /*1, 2, 3, 4, 5, 6, 7*/ };
 vector<int> squares_range = { /*2, 3, 4, 5, 6, 7, 8, 9*/ };
 
 bool graph_dependent_cloud_size = true;
 int cloud_size_parameter = 100;
 
-string noise_type = "gaussian";
-vector<double> noise_parameter_range = { /*0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4*/ 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2 };
+string noise_type = "uniform";
+vector<double> noise_parameter_range = { 0.2/*0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4*/ /*0.45, 0.5, 0.55 0.6, 0.65, 0.7, 0.75*/ /*0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.16, 0.18, 0.2 0.22, 0.24, 0.26 0.28, 0.3, 0.32*/ };
 
-int repetitions = 200;
+int repetitions = 10;
 
 Run_Input run_input( wheel_range, grid_cols_range, grid_rows_range, regular, triangles_range, hexagonal_range, squares_range, graph_dependent_cloud_size, cloud_size_parameter, noise_type, noise_parameter_range, repetitions );
 
@@ -94,7 +94,7 @@ int main( int, char*[] )
             {
                 Mat graph_image( image_sizes, CV_8UC3, white );
                 
-                Draw_Graph( g, 3, -1, 1, black, graph_image );
+                Draw_Graph( g, 7, -1, 2, black, graph_image );
                 
                 Write_Graph_Image( graph_image_directory, input, Betti_num, diagonal_edges, g, graph_image ); // Writing the graph image to a png file.
             }

@@ -304,12 +304,12 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
-					/usr/local/Cellar/opencv/3.3.0_3/include,
-					/usr/local/Cellar/boost/1.65.1/include,
+					/usr/local/Cellar/opencv/4.0.1/include/opencv4,
+					/usr/local/Cellar/boost/1.69.0/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					/usr/local/Cellar/boost/1.65.1/lib,
-					/usr/local/Cellar/opencv/3.3.0_3/lib,
+					/usr/local/Cellar/boost/1.69.0/lib,
+					/usr/local/Cellar/opencv/4.0.1/lib,
 				);
 				OTHER_LDFLAGS = (
 					"-lopencv_calib3d",
@@ -342,12 +342,12 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
-					/usr/local/Cellar/opencv/3.3.0_3/include,
-					/usr/local/Cellar/boost/1.65.1/include,
+					/usr/local/Cellar/opencv/4.0.1/include/opencv4,
+					/usr/local/Cellar/boost/1.69.0/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					/usr/local/Cellar/boost/1.65.1/lib,
-					/usr/local/Cellar/opencv/3.3.0_3/lib,
+					/usr/local/Cellar/boost/1.69.0/lib,
+					/usr/local/Cellar/opencv/4.0.1/lib,
 				);
 				OTHER_LDFLAGS = (
 					"-lopencv_calib3d",
